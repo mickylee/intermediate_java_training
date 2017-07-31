@@ -14,7 +14,7 @@
 完成本项目后，你应该能够：
 1. 使用**HashMaps**和**TreeMaps**，灵活存储和访问数据
 2. 在无需提前知道数据具体细节的情况下，对数据进行读取和计算统计
-3. 继续实践Javadoc和单元测试的好的编程实
+3. 继续实践Javadoc和单元测试的好的编程实践
 
 # 成功策略
 - UML规范了一些接口，请不要随便修改接口
@@ -27,7 +27,7 @@
 # 准备工作
 1. 将project2的实现拷贝到project3。
 2. 下载数据文件[project3-data.zip](project3-data.zip)
-3. 将数据拷贝到你的project2工作区
+3. 将数据拷贝到你的项目工作区
 
 # 输出样例
 下面是由我们程序产生的几个样例输出（使用Driver.reportStation()）。你实现的输出应该类似。
@@ -94,7 +94,7 @@ Min: 2013-01-18, FITT: 0.0000
 - *getStatisticMinDay()和*getStatisticMaxDay*和平均Average的处理行为类似。
 - **MultiStatisticAbstract**的子类都用**TreeMap**表示他们的子对象。**TreeMap**的Keys是整数（对于**DataSet**对象对应于年，对于**Year**对象对应于月）。我们使用**TreeMap**是因为我们想保留健的顺序，可以有助我们快速查找变量的最大和最小值。另外，Map允许我们使用有意义的键（例如，实际的年份）。
 - **MultiStatisticsAbstract**的每个子类实现**Iterable<Integer>**，使得MSA可以按子类的键进行迭代。迭代器必须以数字顺序对键进行迭代。提示，仔细查看**TreeMap**的API。
-- **DataDay**类将不再为每个可能的**Sample**类型显示地表示变量。相反，该类使用一个HashMap将一个variableId映射到对应那个变量的一个**Sample**实例。
+- **DataDay**类将不再为每个可能的**Sample**类型显式地表示变量。相反，该类使用一个HashMap将一个variableId映射到对应那个变量的一个**Sample**实例。
 - **DataDay**类通过一组静态方法（*setDataDefinitionList()和*setDataFields()）设置**DataDefinitionList**和字段名。后者存储数据文件顶部包含的字段名列表。另外，后者也设置*yearIndex*，*monthIndex*，*dayIndex*和*stationIdIndex*类变量。
 - **DataDay**构造函数将使用**DataDefinitionList**来确定哪些字段对应到必须表示为样本的变量。
 - 继承自**MultiStatististicsAbstract**的任何类将不会显式地表示特定变量。相反，variableId将被用于查询变量值和计算变量的最小，最大和平均值。
@@ -107,7 +107,7 @@ Days，Months和Years的*toString()*方法应当返回一个编码日期和stati
 ```
 YYYY-MM-DD, stationId
 ```
-其中MM和DD将别去掉，如果对象中不含month和day。
+如果对象中不含month和day，则其中MM和DD将被去掉。
 - *getStructure()*方法应当返回描述对象完整内容的一个字符串（对调试有用）。*DataSet.getStructure()*返回格式如下：
 ```
 TS\n
@@ -145,7 +145,7 @@ TS\n
 你可以做如下假定：
 1. 数据集中所有检测站包含在geoinfo.csv文件中，文件中的列是预定义的（它们不会改变）。
 2. 所有文件存在，并且是正确格式化的csv文件。
-3. 数据文件包含如下列：YEAR，MONTH，DAY，STID。但是，它们可能出现在任意类。
+3. 数据文件包含如下列：YEAR，MONTH，DAY，STID。但是，它们可能出现在任意列。
 4. 数据集文件中的所有变量值可以被解释为doubles。
 
 # 注意
